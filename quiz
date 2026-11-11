@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz con PyScript</title>
+    <!-- Inclusione dei file necessari di PyScript -->
+    <link rel="stylesheet" href="https://pyscript.net">
+    <script type="module" src="https://pyscript.net"></script>
+</head>
+<body>
+
+    <h2>Quiz Rapido</h2>
+    <p>Qual è la capitale d'Italia?</p>
+    
+    <input type="text" id="risposta" placeholder="Scrivi qui...">
+    <button py-click="verifica_risposta">Invia</button>
+    
+    <p id="risultato"></p>
+
+    <!-- Codice Python eseguito nel browser -->
+    <script type="py">
+        from pyscript import document
+
+        def verifica_risposta(event):
+            input_utente = document.querySelector("#risposta").value.strip().lower()
+            output = document.querySelector("#risultato")
+            
+            if input_utente == "roma":
+                output.innerText = "Corretto!"
+            else:
+                output.innerText = "Sbagliato, riprova."
+    </script>
+
+</body>
+</html>
